@@ -48,7 +48,7 @@ tmp[1:9] = paste0("0", tmp[1:9])
 tmp = paste0("H", tmp)
 key.table <- data.frame(
   Hospital = names(dqa.results)[-1],
-  Key = tmp
+  Code = tmp
 )
 
 report.doc = addParagraph(
