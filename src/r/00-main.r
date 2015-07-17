@@ -23,7 +23,7 @@ prj.dir = gsub("\\\\", "/", if (.Platform$OS.type == "windows")
   else
     Sys.getenv("HOME"))
 
-cat("checking for required files and directories...")
+cat("checking for required files and directories...\n")
 prj.dir = file.path(prj.dir, "hsuApps", "dqa-reports")
 if (!file.exists(prj.dir))
   stop(paste0("project location \"", prj.dir, "\" not found!"))
@@ -31,14 +31,14 @@ src.dir = file.path(prj.dir, "src", "r")
 if (!file.exists(src.dir))
   stop(paste0("scripts' location \"", src.dir, "\" not found!"))
 r.scripts = sort(list.files(src.dir))
-cat("required files and directories available!")
+cat("required files and directories available!\n")
 
-cat("running app...")
-r.scripts = paste0(src.dir, r.scripts, sep = "/")[-1]
+cat("running app...\n")
+r.scripts = paste(src.dir, r.scripts, sep = "/")[-1]
 invisible(sapply(r.scripts, function(x) {
   source(x, max.deparse.length = Inf)
 }))
-cat("app successfully run!")
+cat("app successfully run!\n")
 
 cat("audit process complete!\n")
 cat(paste0("audit ended at ", format(Sys.time(), "%I:%M%p"), "\n"))

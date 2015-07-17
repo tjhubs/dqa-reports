@@ -12,7 +12,7 @@
 #
 #///////////////////////////////////////////////////////////////////////////
 
-cat("initializing reporting environment...")
+cat("initializing reporting environment...\n")
 
 libs.to.load = c("ReporteRs"
                  ,"RedcapData"
@@ -20,7 +20,7 @@ libs.to.load = c("ReporteRs"
                  ,"stringr"
                  ,"data.table")
 
-cat("attaching packages to search path...")
+cat("attaching packages to search path...\n")
 libs.not.available = libs.to.load[!libs.to.load %in% .packages(all.available =
                                                                  T)]
 if (0 < length(libs.not.available))
@@ -29,9 +29,9 @@ invisible(sapply(libs.to.load, function(x) {
   suppressWarnings(suppressPackageStartupMessages(library(x, character.only =
                                                             T)))
 }))
-cat("packages attached!")
+cat("packages attached!\n")
 
-cat("setting global settings and variables...")
+cat("setting global settings and variables...\n")
 project.name = "Clinical Information Network"
 project.alias = "CIN"
 report.location = file.path(prj.dir, "cache", "doc", paste0("audit_", tolower(project.alias), ".docx"))
@@ -51,14 +51,14 @@ site.db.location = file.path(prj.dir, "doc", "assets", "hospdb.csv")
 if (!file.exists(site.db.location))
   stop("site database not found!")
 site.db = read.csv(site.db.location, as.is = T)
-repos.token = ""
+repos.token = "9AF92DD420E5F32024B588179EEA634B"
 repos.api.url = "http://hsu.kemri-wellcome.org/redcap/api/"
 repos.local = F
-audit.token = ""
+audit.token = "379DD40887C2EA0FD989DE1C840466D9"
 audit.api.url = repos.api.url
 audit.local = repos.local
 project.period = "June - July, 2015"
 
-cat("global settings and variables initialized")
+cat("global settings and variables set\n")
 
-cat("environment initialized!")
+cat("environment initialized!\n")

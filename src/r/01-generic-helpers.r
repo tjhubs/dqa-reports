@@ -12,6 +12,6 @@
 #
 #///////////////////////////////////////////////////////////////////////////
 
-cat("loading generic helper functions and objects...")
+cat("loading generic helper functions and objects...\n")
 
-cat("generic helper functions loaded!")
+cat("generic helper functions loaded!\n")

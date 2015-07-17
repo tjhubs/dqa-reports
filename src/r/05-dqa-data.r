@@ -12,7 +12,7 @@
 #
 #///////////////////////////////////////////////////////////////////////////
 
-cat("performing the concordance analysis...")
+cat("performing the concordance analysis...\n")
 dqa.obj = redcap_dqa(
   repo_token = repos.token
   ,repo_api_url = repos.api.url
@@ -20,15 +20,23 @@ dqa.obj = redcap_dqa(
   ,dqa_token = audit.token
   ,dqa_api_url = audit.api.url
   ,dqa_local = audit.local
-  ,fields_to_exclude = c("date_today"
-                         ,"id"
-                         ,"redcap_data_access_group")
+  ,fields_to_exclude = c(
+    "^date_today$"
+    ,"^id$"
+    ,"^ipno$"
+    ,"^redcap_data_access_group$"
+    ,"^leave_period"
+    ,"_complete$"
+    ,"^depid$"
+    ,"^is_minimum$"
+    ,"^random$"
+    )
   ,strata = "hosp_id"
 )
-dqa.results = audit(dqa.obj)
-cat("concordance analysis done!")
+dqa.results = audit(dqa.obj, stratified = T)
+cat("concordance analysis done!\n")
 
-cat("reshaping audit results for reporting...")
+cat("reshaping audit results for reporting...\n")
 dqa.results = unclass(dqa.results)
 tmp = names(dqa.results)
 site.in.db = which(tmp %in% site.db$Code)
@@ -71,4 +79,4 @@ detailed = apply(detailed, 1:2, function(x) {
   as.character(round(x * 100, 0))
 })
 
-cat("report data ready!")
+cat("report data ready!\n")

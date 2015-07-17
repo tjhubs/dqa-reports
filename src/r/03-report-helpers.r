@@ -53,58 +53,70 @@ get.cell.colors = function(x) {
   sapply(x, .get.cell.color.impl)
 }
 
-header.text <- textProperties(
-  color = "#FFFFFF"
-  ,font.size = 10
-  ,font.weight = "bold"
-  ,font.style = "normal"
-  ,underlined = FALSE
-  ,font.family = "Corbel"
-  ,vertical.align = "baseline"
-)
+header.text = function() {
+  textProperties(
+    color = "#FFFFFF"
+    ,font.size = 10
+    ,font.weight = "bold"
+    ,font.style = "normal"
+    ,underlined = FALSE
+    ,font.family = "Corbel"
+    ,vertical.align = "baseline"
+  )
+}
 
-header.par <- parProperties(
-  text.align = "center"
-  ,padding.top = 1
-  ,padding.bottom = 1
-  ,padding.left = 0
-  ,padding.right = 0
-)
+header.par = function() {
+  parProperties(
+    text.align = "center"
+    ,padding.top = 1
+    ,padding.bottom = 1
+    ,padding.left = 0
+    ,padding.right = 0
+  )
+}
 
-header.cell <- cellProperties(
-  border.color = "#FFFFFF"
-  ,background.color = "#001F00"
-  ,padding.top = 2
-  ,padding.bottom = 2
-  ,padding.left = 0
-  ,padding.right = 0
-)
+header.cell = function() {
+  cellProperties(
+    border.color = "#FFFFFF"
+    ,background.color = "#001F00"
+    ,padding.top = 2
+    ,padding.bottom = 2
+    ,padding.left = 0
+    ,padding.right = 0
+  )
+}
 
-data.text <- textProperties(
-  color = "black"
-  ,font.size = 10
-  ,font.weight = "normal"
-  ,font.style = "normal"
-  ,underlined = FALSE
-  ,font.family = "Corbel"
-  ,vertical.align = "baseline"
-)
+data.text = function() {
+  textProperties(
+    color = "black"
+    ,font.size = 10
+    ,font.weight = "normal"
+    ,font.style = "normal"
+    ,underlined = FALSE
+    ,font.family = "Corbel"
+    ,vertical.align = "baseline"
+  )
+}
 
-data.par <- parProperties(
-  text.align = "left"
-  ,padding.top = 1
-  ,padding.bottom = 1
-  ,padding.left = 0
-  ,padding.right = 0
-)
+data.par = function() {
+  parProperties(
+    text.align = "left"
+    ,padding.top = 1
+    ,padding.bottom = 1
+    ,padding.left = 0
+    ,padding.right = 0
+  )
+}
 
-data.cell <- cellProperties(
-  border.color = "#391D00"
-  ,padding.top = 2
-  ,padding.bottom = 2
-  ,padding.left = 0
-  ,padding.right = 0
-  ,border.style = "dotted"
-)
+data.cell  = function() {
+  cellProperties(
+    border.color = "#391D00"
+    ,padding.top = 2
+    ,padding.bottom = 2
+    ,padding.left = 0
+    ,padding.right = 0
+    ,border.style = "dotted"
+  )
+}
 
-cat("reporting helper functions loaded!")
+cat("reporting helper functions loaded!\n")

@@ -12,6 +12,6 @@
 #
 #///////////////////////////////////////////////////////////////////////////
 
-cat("loading data-centric helper functions and objects...")
+cat("loading data-centric helper functions and objects...\n")
 
-cat("data-centric helper functions loaded!")
+cat("data-centric helper functions loaded!\n")
